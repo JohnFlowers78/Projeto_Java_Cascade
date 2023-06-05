@@ -35,7 +35,7 @@ public class AppOnibus {
                 case 2:
                     // Lógica para atualizar ônibus
                     int idOnibusAtualizar = Console.readInt("\nInforme o ID do ônibus que deseja atualizar:");
-                    Onibus onibusAtualizar = onibusDAO.procurarPorId(idOnibusAtualizar);
+                    Onibus onibusAtualizar = onibusDAO.procurarPorId(idOnibusAtualizar);                                                                     //AQUI
                     if (onibusAtualizar != null) {
                         onibusAtualizar.setNomeLinha(Console.readString("Informe o novo nome da linha:"));
                         onibusAtualizar.setNumeroLinha(Console.readInt("Informe o novo número da linha:"));
@@ -48,7 +48,7 @@ public class AppOnibus {
                 case 3:
                     // Lógica para excluir ônibus
                     int idOnibusExcluir = Console.readInt("\nInforme o ID do ônibus que deseja excluir:");
-                    Onibus onibusExcluir = onibusDAO.procurarPorId(idOnibusExcluir);
+                    Onibus onibusExcluir = onibusDAO.procurarPorId(idOnibusExcluir);                                                                          //AQUI
                     if (onibusExcluir != null) {
                         boolean confirmacao = Console.readBoolean("\nDeseja excluir também as rotas associadas a este Ônibus? (true/false):");
                         if (confirmacao) {

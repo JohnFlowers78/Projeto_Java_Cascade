@@ -14,6 +14,13 @@ public class Motorista {
     private String cpf;
     private String numero;
     
+    public Motorista() {
+        // Construtor sem parâmetros
+    }
+    
+    public Motorista(int id) {
+        this.id = id;
+    }
     
 	public int getId() {
 		return id;
@@ -39,6 +46,4 @@ public class Motorista {
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
-   
-
 }

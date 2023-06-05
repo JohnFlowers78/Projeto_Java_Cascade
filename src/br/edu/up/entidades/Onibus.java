@@ -15,6 +15,14 @@ public class Onibus {
     private String nomeLinha;
     private int numeroLinha;
     
+    public Onibus() {
+        // Construtor sem parâmetros
+    }
+    
+    public Onibus(int id) {
+        this.id = id;
+    }
+    
 	public int getId() {
 		return id;
 	}

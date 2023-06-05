@@ -1,5 +1,8 @@
 package br.edu.up.front;
 
+import br.edu.up.entidades.Onibus;
+import br.edu.up.entidades.Motorista;
+
 import br.edu.up.front.Console;
 import br.edu.up.entidades.Rota;
 import br.edu.up.persistencia.RotaPersistencia;
@@ -19,32 +22,34 @@ public class AppRota {
             System.out.println("1 - Cadastrar");
             System.out.println("2 - Atualizar");
             System.out.println("3 - Excluir");
-            System.out.println("4 - Listar");
+            System.out.println("4 - Listar");      //    33, 42, 47
             System.out.println("5 - Voltar");
 
             opc = Console.readInt("Informe a opção: ");
 
             switch (opc) {
                 case 1:
-                    // Lógica para cadastrar rota
+                    
                     Rota rota = new Rota();
-                    // Preencha os dados da rota, por exemplo:
-                    rota.setIdOnibus(Console.readInt("\nInforme o ID do ônibus:"));
+                    int idOnibus = (Console.readInt("\nInforme o ID do ônibus:"));
                     int idMotorista = Console.readInt("Informe o ID do motorista:");
 
-                    // Verifica se o ID do ônibus existe
-                    if (!onibusDAO.onibusExiste(rota.getIdOnibus())) {
+                    if (!onibusDAO.onibusExiste(idOnibus)) {
                         System.out.println("ID do ônibus inválido. Não existe um ônibus com esse ID!");
                         break;
                     }
 
-                    // Verifica se o ID do motorista existe
                     if (!motoristaDAO.motoristaExiste(idMotorista)) {
                         System.out.println("ID do motorista inválido. Não existe um motorista com esse ID!");
                         break;
                     }
-
-                    rota.setIdMotorista(idMotorista);
+                    
+                    Onibus onibus = OnibusPersistencia.procurarPorId(idOnibus);
+                    rota.setOnibus(onibus);
+                    
+                    Motorista motorista = MotoristaPersistencia.procurarPorId(idMotorista);
+                    rota.setMotorista(motorista);
+                    
                     rota.setNomeRota(Console.readString("Informe o nome da rota:"));
                     rotaDAO.incluir(rota);
                     System.out.println("\nRota cadastrada com sucesso!");
@@ -53,8 +58,8 @@ public class AppRota {
                     // Lógica para atualizar rota
                     Rota rotaAtualizada = new Rota();
                     rotaAtualizada.setId(Console.readInt("\nInforme o ID da rota que deseja atualizar:"));
-                    rotaAtualizada.setIdOnibus(Console.readInt("Informe o novo ID do ônibus:"));
-                    rotaAtualizada.setIdMotorista(Console.readInt("Informe o novo ID do motorista:"));
+                    rotaAtualizada.setOnibus(new Onibus(Console.readInt("Informe o novo ID do ônibus:")));
+                    rotaAtualizada.setMotorista(new Motorista(Console.readInt("Informe o novo ID do motorista:")));
                     rotaAtualizada.setNomeRota(Console.readString("Informe o novo nome da rota:"));
                     rotaDAO.alterar(rotaAtualizada);
                     System.out.println("\nRota atualizada com sucesso!");
@@ -62,7 +67,7 @@ public class AppRota {
                 case 3:
                     // Lógica para excluir rota
                     int idRotaExcluir = Console.readInt("\nInforme o ID da rota que deseja excluir:");
-                    Rota rotaExcluir = rotaDAO.procurarPorId(idRotaExcluir);
+                    Rota rotaExcluir = rotaDAO.procurarPorId(idRotaExcluir);                                                   //AQUI
                     if (rotaExcluir != null) {
                         rotaDAO.excluir(rotaExcluir);
                         System.out.println("\nRota deletada com sucesso!");
@@ -77,8 +82,8 @@ public class AppRota {
                         System.out.println("\nLista de Rotas:");
                         for (Rota r : rotas) {
                             System.out.println("ID: " + r.getId());
-                            System.out.println("ID do ônibus: " + r.getIdOnibus());
-                            System.out.println("ID do motorista: " + r.getIdMotorista());
+                            System.out.println("ID do ônibus: " + r.getOnibus());
+                            System.out.println("ID do motorista: " + r.getMotorista());
                             System.out.println("Nome da rota: " + r.getNomeRota());
                             System.out.println();
                         }

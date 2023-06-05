@@ -37,7 +37,7 @@ public class AppMotorista {
                     // Lógica para atualizar motorista
                     // Crie um objeto Motorista e preencha com os dados do motorista que você deseja atualizar
                     int idMotoristaAtualizar = Console.readInt("\nInforme o ID do motorista que deseja atualizar:");
-                    Motorista motoristaAtualizar = motoristaDAO.procurarPorId(idMotoristaAtualizar);
+                    Motorista motoristaAtualizar = motoristaDAO.procurarPorId(idMotoristaAtualizar);                                                           //AQUI
                     if (motoristaAtualizar != null) {
                         motoristaAtualizar.setNome(Console.readString("Informe o novo nome do motorista:"));
                         motoristaAtualizar.setCpf(Console.readString("Informe o novo CPF do motorista:"));
@@ -51,7 +51,7 @@ public class AppMotorista {
                 case 3:
                     // Lógica para excluir motorista
                     int idMotoristaExcluir = Console.readInt("\nInforme o ID do motorista que deseja excluir:");
-                    Motorista motoristaExcluir = motoristaDAO.procurarPorId(idMotoristaExcluir);
+                    Motorista motoristaExcluir = motoristaDAO.procurarPorId(idMotoristaExcluir);                                                               //AQUI
                     if (motoristaExcluir != null) {
                         boolean confirmacao = Console.readBoolean("\nDeseja excluir também as rotas associadas a este motorista? (true/false):");
                         if (confirmacao) {
