@@ -31,7 +31,7 @@ public class AppRota {
                 case 1:
                     
                     Rota rota = new Rota();
-                    int idOnibus = (Console.readInt("\nInforme o ID do ônibus:"));
+                    int idOnibus = Console.readInt("\nInforme o ID do ônibus:");
                     int idMotorista = Console.readInt("Informe o ID do motorista:");
 
                     if (!onibusDAO.onibusExiste(idOnibus)) {
@@ -101,4 +101,6 @@ public class AppRota {
             }
         } while (opc != 5);
     }
+    
+   
 }

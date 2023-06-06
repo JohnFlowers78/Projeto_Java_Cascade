@@ -14,11 +14,11 @@ public class Rota {
     private int id;
 	
     // Relacionamento UmParaUm com Ônibus
-    @OneToOne(cascade = CascadeType.REMOVE)
+    @OneToOne(cascade = CascadeType.REMOVE)                 // QUE PORRA É   (cascade = CascadeType.REMOVE)     ?????????
     private Onibus onibus;
     
  // Relacionamento UmParaUm com Motorista
-    @OneToOne(cascade = CascadeType.REMOVE)
+    @OneToOne
     private Motorista motorista;
    
     private String nomeRota;
@@ -31,19 +31,19 @@ public class Rota {
         this.id = id;
     }
 
-    public Motorista getIdOnibus() {
+    public Motorista getOnibus() {
         return motorista;
     }
 
-    public void setIdOnibus(Onibus onibus) {
+    public void setOnibus(Onibus onibus) {
         this.onibus = onibus;
     }
 
-    public Motorista getIdMotorista() {
+    public Motorista getMotorista() {
         return motorista;
     }
 
-    public void setIdMotorista(Motorista motorista) {
+    public void setMotorista(Motorista motorista) {
         this.motorista = motorista;
     }
 
