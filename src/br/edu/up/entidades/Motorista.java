@@ -14,13 +14,13 @@ public class Motorista {
     private String cpf;
     private String numero;
     
-    public Motorista() {
+    //public Motorista() {
         // Construtor sem parâmetros
-    }
+    //}
     
-    public Motorista(int id) {
-        this.id = id;
-    }
+    //public Motorista(int id) {
+       // this.id = id;
+    //}
     
 	public int getId() {
 		return id;

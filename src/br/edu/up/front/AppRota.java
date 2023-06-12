@@ -58,8 +58,10 @@ public class AppRota {
                     // Lógica para atualizar rota
                     Rota rotaAtualizada = new Rota();
                     rotaAtualizada.setId(Console.readInt("\nInforme o ID da rota que deseja atualizar:"));
-                    rotaAtualizada.setOnibus(new Onibus(Console.readInt("Informe o novo ID do ônibus:")));
-                    rotaAtualizada.setMotorista(new Motorista(Console.readInt("Informe o novo ID do motorista:")));
+                    //rotaAtualizada.setOnibus(new Onibus(Console.readInt("Informe o novo ID do ônibus:")));
+                    rotaAtualizada.setOnibus(new Onibus());
+                    // rotaAtualizada.setMotorista(new Motorista(Console.readInt("Informe o novo ID do motorista:")));
+                    rotaAtualizada.setMotorista(new Motorista());
                     rotaAtualizada.setNomeRota(Console.readString("Informe o novo nome da rota:"));
                     rotaDAO.alterar(rotaAtualizada);
                     System.out.println("\nRota atualizada com sucesso!");
